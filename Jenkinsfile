@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps { 
-                echo 'building...'
+                docker build . --tag hello
             }
         }
         stage('Publish') {
