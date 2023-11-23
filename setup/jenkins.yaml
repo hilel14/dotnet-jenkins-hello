@@ -53,7 +53,7 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jenkins/jenkins:lts
+          image: hilel14/jenkins_with_docker:latest
           ports:
             - name: httpport
               containerPort: 8080

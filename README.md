@@ -6,10 +6,11 @@ This Git project contains the resources and instructions needed to setup and run
 
 ## Steps to recreate the exercise
 
-* Open terminal and run the command `kubectl apply -f jenkins-setup.yaml`
-* Perform some Jenkins post-installation tasks
+* Run script `setup/setup.sh` to create a custom Jenkins Docker image and deploy it as K8S service.
+* Perform some Jenkins post-installation tasks:
   * Access Jenkis controller from your browser at: http://${node_ip}:32000 and login as Administrator
   * Install suggested plugins and add admin user
+  * Add Docker Hub Credentials to Jenkins
   * Create a new Pipeline project. Important configuration:
     * Pipeline script from SCM
     * Repository URL: https://github.com/hilel14/dotnet-jenkins-hello
@@ -28,3 +29,4 @@ This exercise contains some shortcuts and workarounds that are not relevant to a
 ## Useful Links
 
 * https://github.com/scriptcamp/kubernetes-jenkins
+* https://hackmamba.io/blog/2022/04/running-docker-in-a-jenkins-container/

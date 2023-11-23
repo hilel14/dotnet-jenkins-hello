@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello
+  damespace: dev
+spec:
+  template:
+    spec:
+      containers:
+        - name: hello
+          image: hilel14/hello-dotnet
+      restartPolicy: Never
+  backoffLimit: 0

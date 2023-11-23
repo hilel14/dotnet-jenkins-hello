@@ -3,12 +3,20 @@ pipeline {
     stages {
         stage('Build') {
             steps { 
-                sh 'docker build --tag hello .'
+                sh 'docker build --tag hilel14/hello-dotnet .'
             }
         }
-        stage('Publish') {
+        stage('Push') {
             steps { 
-                echo 'publishing version ${env.VERSION} ...'
+                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                    sh 'docker push hilel14/hello-dotnet:latest'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps { 
+                sh 'kubectl apply -f hello.yaml'
             }
         }
     }
