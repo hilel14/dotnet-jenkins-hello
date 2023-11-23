@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps { 
-                docker build --tag hello .
+                sh 'docker build --tag hello .'
             }
         }
         stage('Publish') {
