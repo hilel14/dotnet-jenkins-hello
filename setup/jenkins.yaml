@@ -51,6 +51,10 @@ spec:
         app: jenkins-server
     spec:
       serviceAccountName: jenkins-admin
+      volumes:
+        - name: docker-sock
+          persistentVolumeClaim:
+            claimName: docker-sock
       containers:
         - name: jenkins
           image: hilel14/jenkins_with_docker:latest
@@ -59,6 +63,9 @@ spec:
               containerPort: 8080
             - name: jnlpport
               containerPort: 50000
+          volumeMounts:
+            - mountPath: "/var/run/docker.sock"
+              name: docker-sock
 ---
 apiVersion: v1
 kind: Service

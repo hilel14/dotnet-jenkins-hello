@@ -30,3 +30,4 @@ This exercise contains some shortcuts and workarounds that are not relevant to a
 
 * https://github.com/scriptcamp/kubernetes-jenkins
 * https://hackmamba.io/blog/2022/04/running-docker-in-a-jenkins-container/
+* https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/

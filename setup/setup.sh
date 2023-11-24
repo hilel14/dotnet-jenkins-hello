@@ -11,4 +11,5 @@ docker login
 docker image push hilel14/jenkins_with_docker:latest
 
 # deploy Jenkins to k8s cluster
+kubectl apply -f jenkins-valumes.yaml
 kubectl apply -f jenkins.yaml
